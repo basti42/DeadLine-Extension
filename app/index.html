@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Deadline</title>
+  </head>
+  <body>
+
+    <div id="main_app_wrapper">
+      <div class="row header_row backgroundcolor">
+        <div class="nav_item left">
+          DeadLine
+          <!-- TODO add an icon -->
+        </div>
+        <div class="nav_item center italic">
+          keep track of your upcoming events
+          <!-- TODO make better description -->
+        </div>
+        <div class="nav_item right disabled">
+          <!-- Login -->
+          <!-- TODO user login when rest backend exists -->
+        </div>
+      </div>
+
+      <form action="" method="post" novalidate>
+      <div class="row input_row">
+
+          <div class="input_container">
+            <!-- event input row -->
+            <div class="input_container_row">
+              <div class="input_container_label">
+                <label for="event_name">Event</label>
+              </div>
+              <div class="input_container_event">
+                <input type="text" name="event_name" id="event_name" placeholder="" />
+              </div>
+            </div>
+            <!-- date time input row -->
+            <div class="input_container_row">
+              <div class="input_container_label">
+                <label for="event_date">Date</label>
+              </div>
+              <div class="input_container_datetime">
+                <input type="date" name="event_date" id="event_date" />
+              </div>
+              <div class="input_container_label">
+                <label for="event_time">Time</label>
+              </div>
+              <div class="input_container_datetime">
+                <input type="time" name="event_time" id="event_time" />
+              </div>
+            </div>
+          </div>
+
+          <div class="input_container_submit">
+            <input type="submit" name="saveButton" id="saveButton" value="save" />
+          </div>
+
+      </div>
+      </form>
+
+      <div class="row controls_row">
+        <div class="controls_item left">Upcoming Events</div>
+        <div class="controls_item right disabled"><!-- sync--></div>
+      </div>
+
+      <div class="row display_row">
+
+        <div class="display_event_wrapper">
+          <ul id="list-data">
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="row footer_row backgroundcolor">
+        <!-- <div class="footer_element center">S.Wehner</div> -->
+        <div class="footer_element center"></div>
+        <div class="footer_element center"><a href="#"><!-- Impressum --></a></div>
+        <div class="footer_element center"><a href="#">version: 0.1-alpha</a></div>
+      </div>
+    </div>
+
+    <script src="deadline_backend.js"></script>
+    <script src="app_handler.js"></script>
+  </body>
+</html>

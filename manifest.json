@@ -1,0 +1,36 @@
+{
+
+  "manifest_version": 2,
+  "name": "DeadLine",
+  "version": "0.1",
+
+  "description": "Keeps an eye on your deadlines, like exams or other important events that you don't want to think about and rather procrastinate.",
+  "homepage_url": "https://github.com/basti42",
+
+  "browser_specific_settings": {
+     "gecko": {
+       "id": "basti.addon.dev@gmail.com",
+       "strict_min_version": "0.1"
+     }
+   },
+
+  "background" : {
+    "scripts":["background_scripts/background.js"]
+  },
+
+  "icons": {
+    "48": "icons/icons_48.png",
+    "96": "icons/icons_96.png"
+  },
+
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage"
+  ],
+  "browser_action": {
+    "default_icon" : "icons/icons_32.png",
+    "default_title" : "DeadLine"
+  }
+
+}
