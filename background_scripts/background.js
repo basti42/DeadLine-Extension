@@ -1,4 +1,4 @@
-var landingPage = "moz-extension://d234bb80-71c4-4a42-894a-377c7fcaf1cc/app/index.html";
+var landingPage = "/app/index.html";
 
 /************      utiilitiy functions      ************/
 function focusOrOpenLandigpageInTab(url){
