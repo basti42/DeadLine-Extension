@@ -14,6 +14,13 @@ String.prototype.hashCode = function() {
   return String(hash); // has to be string to be imutable for indexeddb access
 };
 
+Date.prototype.isValid = function () {
+    // An invalid date object returns NaN for getTime() and NaN is the only
+    // object not strictly equal to itself.
+    return this.getTime() === this.getTime();
+};  
+
+
 
 var eventsdata = [
     {name: "OOP Klausur", creationDate: "date-string", dueDate: "date-string", tags: ["t1", "t2", "t3"], hash: undefined},

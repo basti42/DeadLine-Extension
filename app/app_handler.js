@@ -1,15 +1,16 @@
 // functionality to handle the dom on the app
 
 const saveButton = document.getElementById("saveButton");
-saveButton.addEventListener("click", (event) => {
-  const values = getAllInputs();
-  if (values.name === "") {
-    return;
-  }
-  console.debug("[DEBUG] ", values);
-  saveNewEventToDatabase(values);
-  event.preventDefault();
-});
+saveButton.addEventListener("click", saveInputsToIndexedDB);
+// (event) => {
+//   const values = getAllInputs();
+//   if (values.name === "") {
+//     return;
+//   }
+//   console.debug("[DEBUG] ", values);
+//   saveNewEventToDatabase(values);
+//   event.preventDefault();
+// });
 
 // toggle input row
 const toggleImg = document.getElementById("collapse-control");
@@ -47,7 +48,51 @@ toggleImg.addEventListener("click", (event) => {
 });
 
 
+const enterpressables = document.getElementsByClassName("enterpressable");
+for (epa of enterpressables){
+  epa.addEventListener("keypress", (e) => {
+    let key = e.which || e.keyCode;
+    if (key === 13){
+        saveInputsToIndexedDB(e);
+    }
+  });
+}
 
+/** Obtain all inputs from the input forms
+    make sure they are not empty
+    then save the data into the indexedDB */
+function saveInputsToIndexedDB(event){
+  event.preventDefault();
+  removeMissingMarkIfPossible();
+  let values = getAllInputs();
+  // console.log("Pommes:", values);
+  // console.log("Ketchup: ", values.dueDate.isValid());
+  if (values.name === "" || !(values.dueDate.isValid())){ markMissingInput(); }
+  else {
+    console.debug("[DEBUG] ", values);
+    saveNewEventToDatabase(values);
+  }
+}
+
+/** find out which input fiels was not filled
+    and mark it with a red border */
+function markMissingInput(){
+  let nameBox = document.getElementById("event_name");
+  let dateBox = document.getElementById("event_date");
+  let timeBox = document.getElementById("event_time");
+  if (nameBox.value === ""){ nameBox.style.backgroundColor = "lightred"; }
+  if (dateBox.value === ""){ dateBox.style.backgroundColor = "lightred"; }
+  if (timeBox.value === ""){ timeBox.style.backgroundColor = "lightred"; }
+}
+
+function removeMissingMarkIfPossible(){
+  let nameBox = document.getElementById("event_name");
+  let dateBox = document.getElementById("event_date");
+  let timeBox = document.getElementById("event_time");
+  if (nameBox.value !== ""){ nameBox.style.backgroundColor = "white"; }
+  if (dateBox.value !== ""){ dateBox.style.backgroundColor = "white"; }
+  if (timeBox.value !== ""){ timeBox.style.backgroundColor = "white"; }
+}
 
 
 function clearAllInputs(){
