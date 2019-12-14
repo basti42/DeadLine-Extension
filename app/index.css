@@ -79,6 +79,21 @@ ul {
   list-style-type: none;
 }
 
+.input_container_collapser_control {
+  flex: 0 1 5%; border-right: thin solid #515151;
+}
+
+.collapseable_container {
+  flex:0 1 100%; display: flex; flex-direction: row;
+  min-height: 15vh;
+}
+
+.collapse_info {
+  display: none; flex: 0 1 auto; justify-content: flex-start;
+  text-align: left; padding-left: 2%;
+  font-size: 12pt; font-style: italic;
+}
+
 /* input container layout */
 .input_container {
   flex: 0 1 80%; display: flex; flex-direction: column;
@@ -134,7 +149,8 @@ ul {
 
 .input_row {
   justify-content: flex-start;
-  min-height: 15vh; padding: 1%;
+  /* min-height: 15vh;  */
+  padding: 1%;
   /* border: thin solid #515151; */
 }
 
@@ -171,6 +187,10 @@ ul {
 .display_event_wrapper {
   flex: 0 1 90%; display: flex;
   justify-content: flex-start; flex-direction: column;
+}
+
+#collapse-control {
+  cursor: pointer;
 }
 
 /* alignment and styling */

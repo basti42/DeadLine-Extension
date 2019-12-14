@@ -26,6 +26,17 @@
       <form action="" method="post" novalidate>
       <div class="row input_row">
 
+          <div class="input_container_collapser_control">
+            <img src="firefox_icons/Maximize_dark.svg"
+                 height="20" width="20" id="collapse-control" />
+          </div>
+
+          <div class="collapse_info">
+            Add new Event ...
+          </div>
+
+          <div class="collapseable_container">
+
           <div class="input_container">
             <!-- event input row -->
             <div class="input_container_row">
@@ -57,12 +68,16 @@
             <input type="submit" name="saveButton" id="saveButton" value="save" />
           </div>
 
+          </div>
+
       </div>
       </form>
 
       <div class="row controls_row">
         <div class="controls_item left">Upcoming Events</div>
-        <div class="controls_item right disabled"><!-- sync--></div>
+        <div class="controls_item right">
+          <img src="firefox_icons/Search_dark.svg" alt="search"></img>
+        </div>
       </div>
 
       <div class="row display_row">
