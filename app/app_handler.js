@@ -135,6 +135,16 @@ function calcDifference(date){
   return { days: days, hours: hours, minutes: minutes, seconds: seconds};
 }
 
+/** if there is less than 1 day remaining color the time #ff9900
+    if there is less than 1 hour remaining color the time #ff3300 */
+function colorTimeLeft(container, timeobject){
+  if (timeobject.days <= 0){
+    container.getElementsByClassName("days_left_div")[0].style.color = "#ff9900";
+    if (timeobject.hours <= 0){
+      container.getElementsByClassName("days_left_div")[0].style.color = "#ff3300";
+    }
+  }
+}
 
 /*
   create a new list item containing the information from the database
@@ -160,7 +170,13 @@ function displayEntry(obj){
   date.innerText = obj.dueDate.toLocaleString();
   let remove = document.createElement("div");
   remove.classList.add("remove_div");
-  remove.innerText = "X";
+  // create new delete image
+  let removeImg = document.createElement("img");
+  removeImg.src = "firefox_icons/Delete_dark.svg";
+  removeImg.classList.add("remove_img");
+  removeImg.style.height = "20px";
+  removeImg.style.width = "20px";
+  remove.appendChild(removeImg);
   applyClickListener(remove);
   // append each div to the container
   eventContainer.appendChild(daysLeft);
@@ -170,6 +186,7 @@ function displayEntry(obj){
   // and the container to the list item
   li.appendChild(eventContainer);
   fragment.appendChild(li);
+  colorTimeLeft(eventContainer, remain);
   // add the OFF-DOM-Fragment to the DOM
   document.getElementById("list-data").appendChild(fragment);
 }
@@ -179,16 +196,22 @@ function applyClickListener(element){
   element.addEventListener("click", removeElement);
 }
 
+/** get the information for removal of an event from the container */
+function getValuesFromContainer(container){
+  console.debug("[DEBUG] remove request for ", container);
+  return {
+    name: container.childNodes[1].innerText,
+    dueDate: container.childNodes[2].innerText,
+    hash: container.dataset.hash
+  };
+}
+
+
 function removeElement(e){
   let target = e.target;
-  if (target.classList.contains("remove_div")){
-    let container = target.parentNode;
-    console.debug("[DEBUG] remove request for ", container);
-    let content = {
-      name: container.childNodes[1].innerText,
-      dueDate: container.childNodes[2].innerText,
-      hash: container.dataset.hash
-    };
+  if (target.classList.contains("remove_img")){
+    let container = target.parentNode.parentNode;
+    let content = getValuesFromContainer(container);
     console.debug("[DEBUG] remove content: ", content);
     deleteEventsData(content);
     container.remove(); // delete the DOM element
