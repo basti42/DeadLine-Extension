@@ -13,15 +13,18 @@ input {
 input[type=text]{
   width: 100%;
   padding: 6px 14px;
-  box-sizing: border-box;
+  box-sizing: inherit;
+  border: thin solid #515151; border-radius: 15px;
 }
 
 input[type=date]{
   width: 100%; padding: 6px 14px;
+  border: thin solid #515151; border-radius: 15px;
 }
 
 input[type=time]{
   width: 100%; padding: 6px 14px;
+  border: thin solid #515151; border-radius: 15px;
 }
 
 input[type=button], input[type=submit] {
@@ -42,8 +45,6 @@ input[type=button]:hover, input[type=submit]:hover {
 table {
   width: 90vw;
 }
-
-
 
 /* container for a single event */
 .event_container {

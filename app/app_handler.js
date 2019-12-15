@@ -80,18 +80,18 @@ function markMissingInput(){
   let nameBox = document.getElementById("event_name");
   let dateBox = document.getElementById("event_date");
   let timeBox = document.getElementById("event_time");
-  if (nameBox.value === ""){ nameBox.style.backgroundColor = "lightred"; }
-  if (dateBox.value === ""){ dateBox.style.backgroundColor = "lightred"; }
-  if (timeBox.value === ""){ timeBox.style.backgroundColor = "lightred"; }
+  if (nameBox.value === ""){ nameBox.style.border = "2px solid red"; }
+  if (dateBox.value === ""){ dateBox.style.border = "2px solid red"; }
+  if (timeBox.value === ""){ timeBox.style.border = "2px solid red"; }
 }
 
 function removeMissingMarkIfPossible(){
   let nameBox = document.getElementById("event_name");
   let dateBox = document.getElementById("event_date");
   let timeBox = document.getElementById("event_time");
-  if (nameBox.value !== ""){ nameBox.style.backgroundColor = "white"; }
-  if (dateBox.value !== ""){ dateBox.style.backgroundColor = "white"; }
-  if (timeBox.value !== ""){ timeBox.style.backgroundColor = "white"; }
+  if (nameBox.value !== ""){ nameBox.style.border = "thin solid #515151"; }
+  if (dateBox.value !== ""){ dateBox.style.border = "thin solid #515151"; }
+  if (timeBox.value !== ""){ timeBox.style.border = "thin solid #515151"; }
 }
 
 
