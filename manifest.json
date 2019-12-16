@@ -5,7 +5,7 @@
   "version": "0.3",
 
   "description": "Keeps an eye on your deadlines, like exams or other important events that you don't want to think about and rather procrastinate.",
-  "homepage_url": "https://github.com/basti42",
+  "homepage_url": "https://github.com/basti42/DeadLine-Extension",
 
   "browser_specific_settings": {
      "gecko": {
@@ -25,7 +25,7 @@
   "permissions": [
     "activeTab",
     "tabs",
-    "storage"
+    "unlimitedStorage"
   ],
   "browser_action": {
     "default_icon" : "icons/icons_32.png",
