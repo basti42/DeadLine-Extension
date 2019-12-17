@@ -1,11 +1,19 @@
 var landingPage = "/app/index.html";
 
+var browser;
+if (typeof InstallTrigger !== 'undefined'){ // firefox
+  browser = browser;
+} else if (!!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime)) { // chrome
+  browser = chrome;
+}
+
+
 /************      utiilitiy functions      ************/
 function focusOrOpenLandigpageInTab(url){
   browser.tabs.query({}, (tabs)=>{
     let isOpen = false;
     for (let i=tabs.length-1; i>=0; i--){
-      if (tabs[i].url === url) {
+      if (tabs[i].url.includes(url)) {
         // the url is already open in this tab
         isOpen = true;
         browser.tabs.update(tabs[i].id, {active: true});

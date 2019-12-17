@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "DeadLine",
-  "version": "0.3",
+  "version": "0.4",
 
   "description": "Keeps an eye on your deadlines, like exams or other important events that you don't want to think about and rather procrastinate.",
   "homepage_url": "https://github.com/basti42/DeadLine-Extension",
