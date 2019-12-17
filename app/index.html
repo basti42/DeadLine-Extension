@@ -1,103 +1,91 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="index.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-source 'self' localhost/*">
+
+    <!-- bootstrap css first, then all other custom css -->
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="index.css" /> -->
     <title>Deadline</title>
   </head>
   <body>
 
-    <div id="main_app_wrapper">
-      <div class="row header_row backgroundcolor">
-        <div class="nav_item left">
-          <div>
-            <img src="../icons/icons_32.png" height="28" width="28" />
-            <span>DeadLine</span>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light border">
+       <a class="navbar-brand" href="#">
+         <img src="../icons/icons_32.png" height="28" width="28" />
+         DeadLine
+       </a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarCollapse">
+         <!-- <ul class="navbar-nav mr-auto">
+           <li class="nav-item text-muted">Keep an eye on the lurking deadlines</li>
+         </ul> -->
+
+         <!-- <form class="form-inline ml-auto">
+           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+         </form> -->
+       </div>
+     </nav>
+    </header>
+
+    <main role="main" class="container-fluid border">
+
+      <form>
+        <div class="input-group p-2">
+          <!-- <label for="event_name" class="col-xs-6">Event</label> -->
+          <div class="col-md-7">
+            <input type="text" name="event_name" id="event_name" class="form-control" placeholder="New Event" />
           </div>
+          <!-- <label for="event_date" class="col-xs-3">Date</label> -->
+          <div class="col-md-2">
+            <input type="date" name="event_date" id="event_date" class="form-control" />
+          </div>
+          <!-- <label for="event_time" class="col-xs-3">Time</label> -->
+          <div class="col-md-2">
+            <input type="time" name="event_time" id="event_time" class="form-control" />
+          </div>
+          <button type="submit"  class="btn btn-primary" id="saveButton">Add Event</button>
         </div>
-        <div class="nav_item center italic">
-          keep track of your upcoming events
-          <!-- TODO make better description -->
-        </div>
-        <div class="nav_item right disabled">
-          <!-- Login -->
-          <!-- TODO user login when rest backend exists -->
-        </div>
-      </div>
-
-      <form action="" method="post" novalidate>
-      <div class="row input_row">
-
-          <div class="input_container_collapser_control">
-            <img src="firefox_icons/Maximize_dark.svg"
-                 height="24" width="24" id="collapse-control" />
-          </div>
-
-          <div class="collapse_info">
-            Add new Event ...
-          </div>
-
-          <div class="collapseable_container">
-
-          <div class="input_container">
-            <!-- event input row -->
-            <div class="input_container_row">
-              <div class="input_container_label">
-                <label for="event_name">Event</label>
-              </div>
-              <div class="input_container_event">
-                <input type="text" name="event_name" id="event_name" class="enterpressable" placeholder="" />
-              </div>
-            </div>
-            <!-- date time input row -->
-            <div class="input_container_row">
-              <div class="input_container_label">
-                <label for="event_date">Date</label>
-              </div>
-              <div class="input_container_datetime">
-                <input type="date" name="event_date" id="event_date" class="enterpressable" />
-              </div>
-              <div class="input_container_label">
-                <label for="event_time">Time</label>
-              </div>
-              <div class="input_container_datetime">
-                <input type="time" name="event_time" id="event_time" class="enterpressable" />
-              </div>
-            </div>
-          </div>
-
-          <div class="input_container_submit">
-            <input type="submit" name="saveButton" id="saveButton" value="save" class="enterpressable" />
-          </div>
-
-          </div>
-
-      </div>
       </form>
 
-      <div class="row controls_row">
-        <div class="controls_item left">Upcoming Events</div>
-        <div class="controls_item right">
-          <!-- <img src="firefox_icons/Search_dark.svg" alt="search"></img> -->
-        </div>
+      <div class="row d-flex flex-row bg-light p-2 justify-content-between">
+        <div class="h5 text-muted">Upcoming Events</div>
       </div>
 
-      <div class="row display_row">
 
-        <div class="display_event_wrapper">
-          <ul id="list-data">
+      <div class="row justify-content-center">
+
+          <ul class="list-group p-2 m-2 col-md-12" id="list-data">
           </ul>
-        </div>
-
       </div>
 
-      <div class="row footer_row backgroundcolor">
-        <!-- <div class="footer_element center">S.Wehner</div> -->
+    </main>
+
+    <footer class="footer fixed-bottom">
+      <div class="container">
+        <span class="text">(c) S. Wehner</span>
+      </div>
+    </footer>
+
+
+      <!-- <div class="row footer_row backgroundcolor">
         <div class="footer_element center"></div>
-        <div class="footer_element center"><a href="#"><!-- Impressum --></a></div>
+        <div class="footer_element center"><a href="#"> Impressum </a></div>
         <div class="footer_element center"><a href="#">version: 0.4-alpha</a></div>
       </div>
-    </div>
+    </div> -->
+
+
+    <!-- jQuery first, then popper, then bootstrap, then all other js -->
+    <script src="jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="popper.min.js" crossorigin="anonymous"></script>
+    <script src="bootstrap.min.js" crossorigin="anonymous"></script>
 
     <script src="deadline_backend.js"></script>
     <script src="app_handler.js"></script>

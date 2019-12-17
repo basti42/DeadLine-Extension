@@ -12,41 +12,6 @@ saveButton.addEventListener("click", saveInputsToIndexedDB);
 //   event.preventDefault();
 // });
 
-// toggle input row
-const toggleImg = document.getElementById("collapse-control");
-const container = document.getElementsByClassName("collapseable_container")[0];
-const toggleInfo = document.getElementsByClassName("collapse_info")[0];
-const displayrow = document.getElementsByClassName("display_row")[0];
-
-// default: minimize img, 3vh container,
-container.style.minHeight = "3vh";
-container.style.display = "none";
-toggleInfo.style.display = "flex";
-displayrow.style.height = "75vh";
-
-toggleImg.addEventListener("click", (event) => {
-  // hide or show collapseable_container div
-  // set min-height for input_row to 15vh if show or 3vh if hide
-  // change maximize / minimize img on collapse-control
-
-
-  // show content
-  if (toggleImg.src.includes("Maximize")){
-      toggleImg.src = "firefox_icons/Minimize_dark.svg";
-      container.style.minHeight = "15vh";
-      container.style.display = "flex";
-      toggleInfo.style.display = "none";
-      displayrow.style.height = "64vh";
-  } else {
-    toggleImg.src = "firefox_icons/Maximize_dark.svg";
-    container.style.minHeight = "3vh";
-    container.style.display = "none";
-    toggleInfo.style.display = "flex";
-    displayrow.style.height = "75vh";
-  }
-  event.preventDefault();
-});
-
 
 const enterpressables = document.getElementsByClassName("enterpressable");
 for (epa of enterpressables){
@@ -185,6 +150,9 @@ function displayEntry(obj){
   eventContainer.appendChild(remove);
   // and the container to the list item
   li.appendChild(eventContainer);
+  li.classList.add("list-group-item");
+  // li.classList.add("d-flex");
+  li.classList.add("flex-row");
   fragment.appendChild(li);
   colorTimeLeft(eventContainer, remain);
   // add the OFF-DOM-Fragment to the DOM
