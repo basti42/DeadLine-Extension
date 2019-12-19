@@ -7,7 +7,7 @@
 
     <!-- bootstrap css first, then all other custom css -->
     <link rel="stylesheet" href="bootstrap.min.css" />
-    <!-- <link rel="stylesheet" href="index.css" /> -->
+    <link rel="stylesheet" href="index.css" />
     <title>Deadline</title>
   </head>
   <body>
@@ -34,21 +34,21 @@
      </nav>
     </header>
 
-    <main role="main" class="container-fluid border">
+    <main role="main" class="container-fluid border d-flex flex-column">
 
       <form>
         <div class="input-group p-2">
           <!-- <label for="event_name" class="col-xs-6">Event</label> -->
           <div class="col-md-7">
-            <input type="text" name="event_name" id="event_name" class="form-control" placeholder="New Event" />
+            <input type="text" name="event_name" id="event_name" class="form-control enterpressable" placeholder="New Event" />
           </div>
           <!-- <label for="event_date" class="col-xs-3">Date</label> -->
           <div class="col-md-2">
-            <input type="date" name="event_date" id="event_date" class="form-control" />
+            <input type="date" name="event_date" id="event_date" class="form-control enterpressable" />
           </div>
           <!-- <label for="event_time" class="col-xs-3">Time</label> -->
           <div class="col-md-2">
-            <input type="time" name="event_time" id="event_time" class="form-control" />
+            <input type="time" name="event_time" id="event_time" class="form-control enterpressable" />
           </div>
           <button type="submit"  class="btn btn-primary" id="saveButton">Add Event</button>
         </div>
@@ -59,7 +59,7 @@
       </div>
 
 
-      <div class="row justify-content-center">
+      <div class="row d-flex justify-content-center flex-grow flex-fill">
 
           <ul class="list-group p-2 m-2 col-md-12" id="list-data">
           </ul>
@@ -67,9 +67,13 @@
 
     </main>
 
-    <footer class="footer fixed-bottom">
+    <footer class="footer fixed-bottom bg-light">
       <div class="container">
-        <span class="text">(c) S. Wehner</span>
+        <div class="row d-flex flex-row justify-content-start">
+          <div class="flex-grow-1 d-flex justify-content-center"></div>
+          <div class="flex-grow-1 d-flex justify-content-center"><a href="#"> Impressum </a></div>
+          <div class="flex-grow-1 d-flex justify-content-center">version: 0.4-alpha</div>
+        </div>
       </div>
     </footer>
 

@@ -122,16 +122,31 @@ function displayEntry(obj){
   // | daysLeft | name | dueDate | remove |
   let eventContainer = document.createElement("div");
   eventContainer.dataset.hash = obj.hash;
+  eventContainer.classList.add("d-flex");
+  eventContainer.classList.add("flex-row");
+  eventContainer.classList.add("justify-content-start");
   eventContainer.classList.add("event_container");
   let daysLeft = document.createElement("div");
+  daysLeft.classList.add("flex-grow-1");
+  daysLeft.classList.add("col-2");
+  daysLeft.classList.add("p-1");
+  daysLeft.classList.add("mr-3");
   daysLeft.classList.add("days_left_div");
   let remain = calcDifference(obj.dueDate);
   daysLeft.innerText = remain.days + "d " + remain.hours + "h " + remain.minutes + "m";
   let name = document.createElement("div");
   name.classList.add("event_name_div");
+  name.classList.add("flex-grow-1");
+  name.classList.add("col-6");
+  name.classList.add("p-1");
+  name.classList.add("mr-3");
   name.innerText = obj.name;
   let date = document.createElement("div");
   date.classList.add("event_duedate_div");
+  date.classList.add("flex-grow-1");
+  date.classList.add("col-3");
+  date.classList.add("p-1");
+  date.classList.add("mr-3");
   date.innerText = obj.dueDate.toLocaleString();
   let remove = document.createElement("div");
   remove.classList.add("remove_div");
@@ -182,6 +197,6 @@ function removeElement(e){
     let content = getValuesFromContainer(container);
     console.debug("[DEBUG] remove content: ", content);
     deleteEventsData(content);
-    container.remove(); // delete the DOM element
+    container.parentNode.remove(); // delete the parent DOM element
   }
 }

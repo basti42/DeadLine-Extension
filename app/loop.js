@@ -14,7 +14,7 @@ function refreshTimeLeft(){
       let content = getValuesFromContainer(c);
       console.debug("[DEBUG] automatically expiring an event!");
       deleteEventsData(content);
-      c.remove(); // delete the DOM element
+      c.parentNode.remove(); // delete the parent DOM element
       // TODO notification to the user
     }
   }
