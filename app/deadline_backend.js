@@ -23,8 +23,8 @@ Date.prototype.isValid = function () {
 
 
 var eventsdata = [
-    {name: "OOP Klausur", creationDate: "date-string", dueDate: "date-string", tags: ["t1", "t2", "t3"], hash: undefined},
-    {name: "Zahnarzt", creationDate: "date-string", dueDate: "date-string", tags: ["t7"], hash: undefined }
+    {name: "Exam", creationDate: "date-string", dueDate: "date-string", tags: ["t1", "t2", "t3"], hash: undefined},
+    {name: "Doctors appointment", creationDate: "date-string", dueDate: "date-string", tags: ["t7"], hash: undefined }
 ];
 
 /*
@@ -42,14 +42,14 @@ async function getDBPromise(){
 
     request.onsuccess = function(event){
       console.log("[INFO] Database request successful");
-      let osNames = event.target.result.objectStoreNames;
-      resolve(event.target.result);
+      let osNames = this.result.objectStoreNames;
+      resolve(this.result);
     };
 
     // upgrad function updating the database
     request.onupgradeneeded = function(event){
       console.debug("[DEBUG] database upgrade ...");
-      db = event.target.result;
+      db = this.result;
 
       if (!db.objectStoreNames.contains("events")){
         console.debug("[DEBUG] creating initial objectstore 'events'");
@@ -59,7 +59,6 @@ async function getDBPromise(){
         objectstore.createIndex("name", "name", {unique: false});
         objectstore.createIndex("creationDate", "creationDate", {unique:false});
         objectstore.createIndex("dueDate", "dueDate", {unique:false});
-
 
         // objectstore.transaction.oncomplete = function(event){
         //   var eventObjectStore = db.transaction("events", "readwrite").objectStore("events");
@@ -84,7 +83,7 @@ async function getDBPromise(){
       }
 
       // resolve the db promise request
-      return resolve(event.target.result);
+      return resolve(this.result);
     };
   });
 }
