@@ -27,5 +27,6 @@ function dateHasPassed(date){
 
 document.addEventListener("DOMContentLoaded", () => {
   console.debug("[DEBUG] Starting the interval for time left recalculation");
+  setDefaultTimestamp();
   setInterval(refreshTimeLeft, 30000);
 });

@@ -23,3 +23,5 @@ footer {
   text-align: center; justify-content: center;
   cursor: pointer;
 }
+
+.display-row { flex-grow: 1; height: 71vh; overflow: auto;}

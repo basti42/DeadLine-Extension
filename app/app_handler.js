@@ -2,15 +2,6 @@
 
 const saveButton = document.getElementById("saveButton");
 saveButton.addEventListener("click", saveInputsToIndexedDB);
-// (event) => {
-//   const values = getAllInputs();
-//   if (values.name === "") {
-//     return;
-//   }
-//   console.debug("[DEBUG] ", values);
-//   saveNewEventToDatabase(values);
-//   event.preventDefault();
-// });
 
 
 const enterpressables = document.getElementsByClassName("enterpressable");
@@ -21,6 +12,18 @@ for (epa of enterpressables){
         saveInputsToIndexedDB(e);
     }
   });
+}
+
+/** Set default values for date and time
+    Default: next day, 10:00 AM
+*/
+function setDefaultTimestamp(){
+  let date = document.getElementById("event_date");
+  let time = document.getElementById("event_time");
+  let oneDay = 24 * 60 * 60 * 1000;
+  let tomorrow = new Date(new Date().getTime() + oneDay);
+  date.value = tomorrow.toISOString().split("T")[0];
+  time.value = "10:00";
 }
 
 /** Obtain all inputs from the input forms
@@ -37,6 +40,7 @@ function saveInputsToIndexedDB(event){
     console.debug("[DEBUG] ", values);
     saveNewEventToDatabase(values);
   }
+  setDefaultTimestamp();
 }
 
 /** find out which input fiels was not filled
