@@ -2,6 +2,9 @@ const databaseName = "DeadlineDatabase";
 const databaseVersion = 2;
 var db;
 
+// make sure the correct version gets called
+window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+
 /* HELPER */
 String.prototype.hashCode = function() {
   var hash = 0, i, chr;
